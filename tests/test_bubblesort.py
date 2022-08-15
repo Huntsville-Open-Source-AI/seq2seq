@@ -2,13 +2,15 @@ import unittest
 
 import numpy
 from seq2seq.bubblesort import BubbleSort
+from pytorch import torch
 
 
 # The BubbleSort class has a sort method that returns a sorted array.
 class BubbleSortTest(unittest.TestCase):
     def test_sort(self):
         """
-        BubbleSortTest tests that the SelectionSort class properly sorts the array in ascending order.
+        BubbleSortTest tests that the SelectionSort class properly sorts the
+        array in ascending order.
         """
         array = numpy.array([5, 3, 1, 4, 2])
         numpy.testing.assert_array_equal(
