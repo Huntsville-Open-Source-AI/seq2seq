@@ -22,7 +22,7 @@
 
     // Stop the container from automatically shutting down when vscode is closed.
     // stopContainer, stopCompose, and none are the three options. This saves files.
-//    "shutdownAction": "none",
+    "shutdownAction": "none",
 
     // Set environment variables for VS Code and sub-processes
     "remoteEnv": {
