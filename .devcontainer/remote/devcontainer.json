@@ -1,0 +1,49 @@
+{
+    "remoteUser": "root",
+
+    "name": "seq2seq",
+
+    // This is totally allowed, but VSCode says it isn't, ignore the warning.
+    "image": "mraarone/pytorch-devenv:latest",
+   "runArgs": [
+//       "--gpus", "all",
+       "-e", "SSH_AUTH_SOCK=${localEnv:SSH_AUTH_SOCK}",
+       "-e", "GITCONFIG=${localEnv:GITCONFIG}"
+   ],
+   "postAttachCommand": "if [ \"\" != \"${localEnv:GITCONFIG}\" ]; then echo ${localEnv:GITCONFIG} > ~/.gitconfig; else touch ~/.gitconfig; git config --global --add safe.directory /workspaces/seq2seq; fi",
+
+    //// Consider moving to another devenv generation dockerfile for the CI/CD pipeline when the file changes.
+    //"dockerFile": "../Dockerfiles/Dockerfile.devenv",
+    //"context": "..",
+
+   "mounts": [
+       "source=/${localEnv:SSH_AUTH_SOCK:/dev/null},target=${localEnv:SSH_AUTH_SOCK:/dev/null},type=bind,consistency=cached,ro"
+   ],
+
+    // Stop the container from automatically shutting down when vscode is closed.
+    // stopContainer, stopCompose, and none are the three options. This saves files.
+    "shutdownAction": "none",
+
+    // Set environment variables for VS Code and sub-processes
+    "remoteEnv": {
+        "JAVA_HOME": "/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+    },
+
+    // Default path to open when attaching to a new container.
+    "workspaceFolder": "/workspaces/seq2seq",
+
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mechatroner.rainbow-csv",
+        "bierner.markdown-mermaid",
+        "oderwat.indent-rainbow",
+        "SonarSource.sonarlint-vscode",
+        "redhat.vscode-yaml",
+        "ms-vscode.makefile-tools",
+        "GitHub.copilot",
+        "mintlify.document",
+        "eamodio.gitlens"
+    ]
+}
