@@ -8,7 +8,7 @@
    "runArgs": [
 //       "--gpus", "all",
 //       "-e", "SSH_AUTH_SOCK=${localEnv:SSH_AUTH_SOCK}",
-       "-e", "GITCONFIG=${localEnv:GITCONFIG}"
+//       "-e", "GITCONFIG=${localEnv:GITCONFIG}"
    ],
    "postAttachCommand": "if [ \"\" != \"${localEnv:GITCONFIG}\" ]; then echo ${localEnv:GITCONFIG} > ~/.gitconfig; else touch ~/.gitconfig; git config --global --add safe.directory /workspaces/seq2seq; fi",
 
