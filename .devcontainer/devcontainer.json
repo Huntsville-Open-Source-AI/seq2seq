@@ -6,7 +6,7 @@
     // This is totally allowed, but VSCode says it isn't, ignore the warning.
     "image": "mraarone/pytorch-devenv:latest",
    "runArgs": [
-       "--gpus", "all",
+//       "--gpus", "all",
 //       "-e", "SSH_AUTH_SOCK=${localEnv:SSH_AUTH_SOCK}",
        "-e", "GITCONFIG=${localEnv:GITCONFIG}"
    ],
