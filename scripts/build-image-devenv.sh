@@ -2,9 +2,6 @@
 
 set -e
 
-pwd
-ls
-
 if [ $1 == "--push" ]; then
     WILL_PUSH=1
 else
